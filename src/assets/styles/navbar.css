@@ -99,7 +99,16 @@ body {
    margin-left: 1em;
    font-size: 1rem;
    font-weight: 250;
+   text-decoration: none;
+   color: #000000;
 }
+
+.navbar--rightSide > .active {
+   color: #e96657; 
+   background: inherit;
+}
+
+
 
 .navbar--rightSide a:hover {
    transition: color 0.3s;
@@ -128,6 +137,7 @@ body {
    position: absolute;
    /* background-color: #f9f9f9; */
    min-width: 140px;
+   z-index: 1000
 }
 
 .dropdown > button:hover {
