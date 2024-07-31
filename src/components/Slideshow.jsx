@@ -7,19 +7,28 @@ export default function Slideshow() {
    let myData = [
       {
          index: 0,
-         url: "https://www.w3schools.com/howto/img_nature_wide.jpg",
+         url: "https://media.istockphoto.com/id/183821822/photo/say.jpg?s=612x612&w=0&k=20&c=kRmCjTzA9cq4amgRgeHkZsZuvxezUtC8wdDYfKg-mho=",
+         youtube: false,
       },
       {
          index: 1,
-         url: "https://www.w3schools.com/howto/img_snow_wide.jpg",
+         url: "https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg",
+         youtube: false,
       },
       {
          index: 2,
          url: "https://www.w3schools.com/howto/img_lights_wide.jpg",
+         youtube: false,
       },
       {
          index: 3,
          url: "https://www.w3schools.com/howto/img_mountains_wide.jpg",
+         youtube: false,
+      },
+      {
+         index: 4,
+         url: "K4TOrB7at0Y?si=Vt1ZKrUQLhlRBwGE",
+         youtube: true,
       },
    ];
 
@@ -52,7 +61,10 @@ export default function Slideshow() {
    return (
       <div>
          <div className="slideshow-container">
-            <Slide imgSrc={displayData[currImage].url} />
+            <Slide
+               propsYoutube={displayData[currImage].youtube}
+               contentUrl={displayData[currImage].url}
+            />
 
             <div className="arrow--container">
                <a onClick={handlePrev} className="prev">
