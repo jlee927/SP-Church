@@ -8,18 +8,27 @@ export default function Slideshow() {
       {
          index: 0,
          url: "https://www.w3schools.com/howto/img_nature_wide.jpg",
+         youtube: false,
       },
       {
          index: 1,
          url: "https://www.w3schools.com/howto/img_snow_wide.jpg",
+         youtube: false,
       },
       {
          index: 2,
          url: "https://www.w3schools.com/howto/img_lights_wide.jpg",
+         youtube: false,
       },
       {
          index: 3,
          url: "https://www.w3schools.com/howto/img_mountains_wide.jpg",
+         youtube: false,
+      },
+      {
+         index: 4,
+         url: "K4TOrB7at0Y?si=Vt1ZKrUQLhlRBwGE",
+         youtube: true,
       },
    ];
 
@@ -52,7 +61,10 @@ export default function Slideshow() {
    return (
       <div>
          <div className="slideshow-container">
-            <Slide imgSrc={displayData[currImage].url} />
+            <Slide
+               propsYoutube={displayData[currImage].youtube}
+               contentUrl={displayData[currImage].url}
+            />
 
             <div className="arrow--container">
                <a onClick={handlePrev} className="prev">

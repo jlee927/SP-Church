@@ -20,7 +20,7 @@ export default function Navbar() {
                linkNames={["주일 설교", "기타 설교", "에베소서 강해"]}
             />
             <a>매일성경</a>
-            <NavLink to="/gallery">박화신 목사 컬럼</NavLink>
+            <NavLink to="/gallery">Youtube Test</NavLink>
             <Dropdown
                name="갤러리"
                linkNames={["동영상들", "최근 사진들", "보관된 오랜 사진들"]}
