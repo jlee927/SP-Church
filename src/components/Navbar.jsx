@@ -1,12 +1,13 @@
-import "./navbar.css";
+import "../assets/styles/navbar.css";
 import Dropdown from "./Dropdown";
 import logo from "../images/logoSP.png";
+import placeholder from "../images/placeholder.png";
 
 export default function Navbar() {
    return (
       <div className="navbar">
          <div className="navbar--leftSide">
-            <img className="navbar--image" src={logo} />
+            <img className="navbar--image" src={placeholder} />
             <h2 className="navbar--mainText">생명샘 장로교회</h2>
          </div>
 

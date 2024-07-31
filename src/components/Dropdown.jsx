@@ -1,4 +1,4 @@
-import "./navbar.css";
+import "../assets/styles/navbar.css";
 import React from "react";
 
 export default function Dropdown(props) {

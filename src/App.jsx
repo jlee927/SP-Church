@@ -5,8 +5,6 @@ function App() {
    return (
       <main>
          <Navbar />
-
-         <p>BODSFYDSPFYEF</p>
       </main>
    );
 }
