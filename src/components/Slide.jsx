@@ -1,12 +1,16 @@
 import "../assets/styles/slideshow.css";
-import YoutubeEmbed from "./Youtube";
+import ReactPlayer from "react-player";
 
 export default function Slide(props) {
    return (
       <div>
          {props.propsYoutube ? (
-            <div className="mySlide fade">
-               <YoutubeEmbed className="slide--image" embedId={props.contentUrl} />
+            <div className="myVideo fade">
+               <ReactPlayer
+                  className="react-player"
+                  url="https://www.youtube.com/watch?v=K4TOrB7at0Y"
+                
+               />
             </div>
          ) : (
             <div className="mySlides fade">

@@ -7,12 +7,12 @@ export default function Slideshow() {
    let myData = [
       {
          index: 0,
-         url: "https://www.w3schools.com/howto/img_nature_wide.jpg",
+         url: "https://media.istockphoto.com/id/183821822/photo/say.jpg?s=612x612&w=0&k=20&c=kRmCjTzA9cq4amgRgeHkZsZuvxezUtC8wdDYfKg-mho=",
          youtube: false,
       },
       {
          index: 1,
-         url: "https://www.w3schools.com/howto/img_snow_wide.jpg",
+         url: "https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg",
          youtube: false,
       },
       {

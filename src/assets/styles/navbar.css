@@ -43,9 +43,9 @@ body {
    }
 }
 
-@media (min-width: 1570px) {
+@media (min-width: 1250px) {
    .navbar--leftSide {
-       padding-left: 15vw;
+      padding-left: 15vw;
    }
 }
 
@@ -68,10 +68,10 @@ body {
    }
 }
 
-@media (min-width: 1570px) {
+@media (min-width: 1250px) {
    .navbar--rightSide {
-       padding-right: 15vw;
-       /* background: pink; */
+      padding-right: 15vw;
+      /* background: pink; */
    }
 }
 
@@ -104,11 +104,9 @@ body {
 }
 
 .navbar--rightSide > .active {
-   color: #e96657; 
+   color: #e96657;
    background: inherit;
 }
-
-
 
 .navbar--rightSide a:hover {
    transition: color 0.3s;
@@ -137,7 +135,7 @@ body {
    position: absolute;
    /* background-color: #f9f9f9; */
    min-width: 140px;
-   z-index: 1000
+   z-index: 1000;
 }
 
 .dropdown > button:hover {
