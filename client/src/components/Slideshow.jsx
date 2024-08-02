@@ -1,7 +1,7 @@
 import "../assets/styles/slideshow.css";
 import Dot from "./Dot";
 import Slide from "./Slide";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Slideshow() {
    let myData = [
@@ -35,6 +35,28 @@ export default function Slideshow() {
    const [displayData, setDisplayData] = useState(myData);
    const [currImage, setCurrImage] = useState(0);
 
+   const [dataAPI, setDataApi] = useState(null);
+   const [error, setError] = useState(null);
+
+   useEffect(() => {
+      const fetchData = async () => {
+         try {
+            const response = await fetch("http://localhost:3000/api/content"); // Adjust the URL as needed
+            if (!response.ok) {
+               throw new Error("Network response was not ok");
+            }
+            const result = await response.json();
+            setDataApi(result);
+         } catch (error) {
+            setError(error.message);
+         }
+      };
+
+      fetchData();
+   }, []);
+
+   console.log(dataAPI);
+
    function handleDots(dotKey) {
       setCurrImage(dotKey);
    }
@@ -63,7 +85,7 @@ export default function Slideshow() {
          <div className="slideshow-container">
             <Slide
                propsYoutube={displayData[currImage].youtube}
-               contentUrl={displayData[currImage].url}
+               contentUrl={dataAPI.imgUrl}
             />
 
             <div className="arrow--container">
