@@ -35,7 +35,7 @@ export default function Slideshow() {
    const [displayData, setDisplayData] = useState(myData);
    const [currImage, setCurrImage] = useState(0);
 
-   const [dataAPI, setDataApi] = useState(null);
+   const [dataAPI, setDataApi] = useState([{}]);
    const [error, setError] = useState(null);
 
    useEffect(() => {
@@ -55,7 +55,8 @@ export default function Slideshow() {
       fetchData();
    }, []);
 
-   console.log(dataAPI);
+
+   // console.log(dataAPI);
 
    function handleDots(dotKey) {
       setCurrImage(dotKey);
@@ -64,7 +65,7 @@ export default function Slideshow() {
    function handleNext() {
       console.log("Next Test");
 
-      if (currImage === displayData.length - 1) {
+      if (currImage === dataAPI.length - 1) {
          setCurrImage(0);
       } else {
          setCurrImage(currImage + 1);
@@ -74,7 +75,7 @@ export default function Slideshow() {
    function handlePrev() {
       console.log("Prev Test");
       if (currImage === 0) {
-         setCurrImage(displayData.length - 1);
+         setCurrImage(dataAPI.length - 1);
       } else {
          setCurrImage(currImage - 1);
       }
@@ -84,8 +85,9 @@ export default function Slideshow() {
       <div>
          <div className="slideshow-container">
             <Slide
-               propsYoutube={displayData[currImage].youtube}
-               contentUrl={dataAPI.imgUrl}
+               isVideo={dataAPI[currImage].isVideo}
+               contentUrl={dataAPI[currImage].url}
+
             />
 
             <div className="arrow--container">
@@ -100,7 +102,7 @@ export default function Slideshow() {
 
          <div className="dots--circles">
             <Dot
-               numDots={displayData.length}
+               numDots={dataAPI.length}
                currIndex={currImage}
                handleClick={handleDots}
             />
