@@ -1,14 +1,15 @@
 import "../assets/styles/navbar.css";
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 export default function Dropdown(props) {
-   const linkNames = props.linkNames || [];
+   const linkNames = props.linkData || [{}];
 
    let links = linkNames.map((link, index) => {
       return (
-         <a key={index} href="#">
-            {link}
-         </a>
+         <NavLink className="navLink" key={index} to={link.routerLink}>
+            {link.linkName}
+         </NavLink>
       );
    });
    return (

@@ -9,9 +9,7 @@ body {
 .navbar {
    display: flex;
    font-family: "roboto", sans-serif;
-   /* border: solid 1px blue; */
    justify-content: space-between;
-   /* flex-direction: column; */
    background-color: #f8f8f8;
    height: 5.5em;
    max-width: 100%;
@@ -30,13 +28,13 @@ body {
    display: flex;
    /* border: red solid; */
    width: 30%;
-   padding-left: 5vw;
+   padding-left: 9.5vw;
 }
 @media (max-width: 860px) {
    .navbar--leftSide {
       display: flex;
       justify-content: center;
-      width: 80%;
+      width: 90%;
 
       margin: 0 auto;
       padding: 0;
@@ -62,7 +60,7 @@ body {
    .navbar--rightSide {
       display: flex;
       justify-content: center;
-      width: 80%;
+      width: 90%;
       margin: 0 auto;
       padding: 0;
    }
@@ -80,6 +78,23 @@ body {
    height: 4em;
    object-fit: cover;
    padding-top: 0.5em;
+   margin: 0.5em 0 0 0;
+   padding: 0;
+}
+
+@media (max-width: 860px) {
+   .navbar--image {
+      width: 3.3em;
+      height: 3.3em;
+      object-fit: fill;
+      margin-top: 0.8em;
+      /* border: solid blue; */
+      padding: 0;
+   }
+}
+
+.navbar--imageLink {
+   background-color: inherit;
 }
 
 .navbar--mainText {
@@ -146,11 +161,11 @@ body {
 .dropdown-content a {
    float: none;
    color: black;
+   background-color: #f8f8f8;
    padding: 13px 8px;
    margin-left: 15px;
    text-decoration: none;
    display: flex;
-   /* text-align: left; */
 }
 
 .dropdown-content a:hover {

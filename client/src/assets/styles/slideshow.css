@@ -11,10 +11,12 @@ body {
    margin: 2em 0 0.5em 0;
    overflow: hidden;
    object-fit: fill;
+   /* border: solid red; */
 }
 
 .mySlides {
-   display: block;
+   /* display: block; */
+   /* border: blue solid; */
 }
 
 .slide--image {
@@ -22,9 +24,11 @@ body {
    align-items: center;
    /* border: solid purple; */
    height: 23em;
+   width: 100%;
    display: block;
+   object-fit: fill;
    margin: 0 auto;
-   padding: 1.5em 1.5em 0em 1.5em;
+   /* padding: 1.5em 1.5em 0em 1.5em; */
 }
 
 .prev,
@@ -92,13 +96,13 @@ body {
 
 .myVideo {
    height: 23em;
-   /* border: blue solid; */
+    /* border: blue solid;  */
    background-color: black;
 }
 
 .react-player {
    margin: auto auto;
-   /* border: purple 3px solid; */
+   /* border: purple 3px solid;  */
    padding: 1em;
 }
 
