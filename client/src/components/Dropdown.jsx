@@ -16,7 +16,7 @@ export default function Dropdown(props) {
       <div>
          <div className="dropdown">
             <button>
-               {props.name} <i className="fa fa-caret-down"></i>
+               {props.dropdownName} <i className="fa fa-caret-down"></i>
             </button>
 
             <div className="dropdown-content">{links}</div>

@@ -8,8 +8,8 @@ export default function Navbar() {
    return (
       <div className="navbar">
          <div className="navbar--leftSide">
-            <NavLink className="navbar--imageLink"to="/">
-               <img className="navbar--image" src={logo} />
+            <NavLink className="navbar--imageLink" to="/">
+               <img className="navbar--image" src={placeholder} />
             </NavLink>
             <h2 className="navbar--mainText">생명샘 장로교회</h2>
          </div>
@@ -19,7 +19,7 @@ export default function Navbar() {
                홈
             </NavLink>
             <Dropdown
-               name="교회 안내"
+               dropdownName="교회 안내"
                linkData={[
                   {
                      linkName: "교회 소식",
@@ -30,13 +30,13 @@ export default function Navbar() {
                routerLink={["/news", "/"]}
             />
             <Dropdown
-               name="설교"
+               dropdownName="설교"
                linkNames={["주일 설교", "기타 설교", "에베소서 강해"]}
             />
             <a>매일성경</a>
             <NavLink to="/gallery">박화신 목사 컬럼</NavLink>
             <Dropdown
-               name="갤러리"
+               dropdownName="갤러리"
                linkNames={["동영상들", "최근 사진들", "보관된 오랜 사진들"]}
             />
          </div>

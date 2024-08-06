@@ -1,22 +1,12 @@
 import "../assets/styles/news.css";
 
-export default function NewsEntry() {
+export default function NewsEntry(props) {
    return (
       <div className="news--body">
-         <h2 className="entry--date">1월 1일</h2>
-         <h3 className="entry--posted">작성일자 12월 31, 2022</h3>
+         <h2 className="entry--date">{props.dateAnnouncement.month}월 {props.dateAnnouncement.day}일</h2>
+         <h3 className="entry--posted">작성일자 {props.dateCreated.month}월 {props.dateCreated.day}, {props.dateCreated.year}</h3>
          <p>
-            1. 오늘 신년 감사 예배로 드립니다. 새로운 한 해, 2023년을 주님 앞에서
-            감사하며 새롭게 헌신하며 다짐하는 귀한 예배 되길 축복합니다.
-            2. 오늘 예배 중에 성찬식이 있습니다. 매주 수요일 저녁 7시에 있는 기도회에
-            많은 참석 바랍니다.
-            3. 위해서 함께 기도하시는 모두가 되길 소원합니다. 
-            4. 이번 주 목요일, 1월 5일 저녁 8시에 운영위원회 영상으로 모입니다.
-            5. 다음 주일 오후 5시 정기 제직회 영상으로 모입니다.
-            6. 이번 주 금요일부터 매주 금요일 아침 7시 30분에 기독교 라디오 방송을 통해 주일 설교가
-            전해집니다. 
-            7. 청년들을 위한 장학금 목적 헌금($2,000) 전달합니다.
-            감사합니다.
+            {props.body}
          </p>
 
          <h3 className="entry--category">
