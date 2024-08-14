@@ -9,6 +9,8 @@ export default function Slide(props) {
                <ReactPlayer
                   className="react-player"
                   url={props.contentUrl}
+                  width="100%"
+                  height="100%"
                />
             </div>
          ) : (
@@ -16,7 +18,7 @@ export default function Slide(props) {
                <img
                   className="slide--image"
                   src={props.contentUrl}
-                  alt="temp-img"
+                  alt={props.name}
                />
             </div>
          )}

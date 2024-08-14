@@ -11,7 +11,7 @@ export default function Slideshow() {
    useEffect(() => {
       const fetchData = async () => {
          try {
-            const response = await fetch("http://localhost:3000/api/slideshow"); // Adjust the URL as needed
+            const response = await fetch("http://localhost:3000/contentful/slideshow"); // Adjust the URL as needed
             if (!response.ok) {
                throw new Error("Network response was not ok");
             }

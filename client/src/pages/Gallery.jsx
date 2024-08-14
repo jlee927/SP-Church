@@ -1,7 +1,9 @@
+import Comments from "../components/Comments";
+
 export default function Gallery() {
    return (
       <div>
-         <h1> My Test Gallery</h1>
+         <Comments />
       </div>
    );
 }

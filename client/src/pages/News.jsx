@@ -1,5 +1,5 @@
 import "../assets/styles/news.css";
-import NewsEntry from "./NewsEntry";
+import NewsEntry from "../components/NewsEntry";
 import { useEffect, useState } from "react";
 
 export default function News() {
@@ -9,7 +9,7 @@ export default function News() {
       const fetchData = async () => {
          try {
             const res = await fetch(
-               "http://localhost:3000/api/news-announcement"
+               "http://localhost:3000/contentful/all-news-announcement"
             );
             if (!res.ok) {
                throw new Error("Network response was not okay");
@@ -24,16 +24,11 @@ export default function News() {
       fetchData();
    }, []);
 
-   console.log(dataAPI);
-
-   const sortedDataAPI = [...dataAPI].sort((a, b) => {
-      return new Date(b.createdDate) - new Date(a.createdDate);
-   });
-
    const allNewsEntries = dataAPI.map((newsEntry, key) => {
       return (
          <NewsEntry
             key={key}
+            entryKey={newsEntry.id}
             body={newsEntry.body}
             dateCreated={newsEntry.createdDate}
             dateAnnouncement={newsEntry.announcementDate}
@@ -44,7 +39,7 @@ export default function News() {
    return (
       <div className="news--container">
          <h1 className="news--title">
-            <span>교회 소식</span>
+            <span>[카테고리:] 교회 소식</span>
          </h1>
 
          {/* Check if dataAPI is not empty before rendering NewsEntry */}
