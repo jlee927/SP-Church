@@ -1,19 +1,12 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "server.js",  
-        "use": "@vercel/node"
-      }
-    ],
-    "routes": [
-      { "src": "/contentful/(.*)", "dest": "/server.js" },
-      { "src": "/data/(.*)", "dest": "/server.js" },
-      { "src": "/(.*)", "dest": "/server.js" }
-    ],
-    "env": {
-      "MONGODB_URI": "your-mongodb-connection-string",  
-      "PORT": "3000"  
+  "version": 2,
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
     }
+  ],
+  "env": {
+    "MONGODB_URI": "@mongodb-uri"
   }
-  
+}
