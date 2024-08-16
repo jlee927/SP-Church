@@ -5,20 +5,20 @@ const app = express();
 const PORT = process.env.PORT;
 const cors = require("cors");
 const contentful = require("./routes/contentful");
-const database = require("./routes/database");
+// const database = require("./routes/database");
 
-const mongoose = require("mongoose");
-const dbURI =
-   "mongodb+srv://jin:ji9gvys4@cluster0.gimvn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+// const mongoose = require("mongoose");
+// const dbURI =
+//    "mongodb+srv://jin:ji9gvys4@cluster0.gimvn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/contentful", contentful);
-app.use("/data", database);
+// app.use("/data", database);
 // app.use("/data", )
 
-mongoose.connect(dbURI).then((result) => {
+// mongoose.connect(dbURI).then((result) => {
    app.listen(PORT, (error) => {
       if (!error)
          console.log(
@@ -27,8 +27,4 @@ mongoose.connect(dbURI).then((result) => {
          );
       else console.log("Error occurred, server can't start", error);
    });
-});
-
-app.get("/", (req, res) => {
-   res.send("Test for vercel");
-})
+// });
