@@ -10,7 +10,7 @@ export default function Comments(props) {
       const fetchData = async () => {
          try {
             const res = await fetch(
-               `http://localhost:3000/data/get-comments/${props.postID}`
+               `https://sp-church-backend-0567e0d19c57.herokuapp.com/data/get-comments/${props.postID}`
             );
             if (!res.ok) {
                throw new Error("Network response was not okay");

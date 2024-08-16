@@ -22,7 +22,7 @@ export default function Comments(props) {
    const handleSubmit = (event) => {
       event.preventDefault();
 
-      fetch("http://localhost:3000/data/comment", {
+      fetch("https://sp-church-backend-0567e0d19c57.herokuapp.com/data/comment", {
          method: "POST",
          headers: { "Content-Type": "application/json" },
          body: JSON.stringify(commentInfo),
