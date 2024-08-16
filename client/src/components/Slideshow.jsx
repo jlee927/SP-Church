@@ -11,7 +11,9 @@ export default function Slideshow() {
    useEffect(() => {
       const fetchData = async () => {
          try {
-            const response = await fetch("http://localhost:3000/contentful/slideshow"); // Adjust the URL as needed
+            const response = await fetch(
+               "https://sp-church-backend-0567e0d19c57.herokuapp.com/contentful/slideshow"
+            ); // Adjust the URL as needed
             if (!response.ok) {
                throw new Error("Network response was not ok");
             }
@@ -24,7 +26,6 @@ export default function Slideshow() {
 
       fetchData();
    }, []);
-
 
    // console.log(dataAPI);
 
@@ -57,7 +58,6 @@ export default function Slideshow() {
             <Slide
                isVideo={dataAPI[currImage].isVideo}
                contentUrl={dataAPI[currImage].url}
-
             />
 
             <div className="arrow--container">
