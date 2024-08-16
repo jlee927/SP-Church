@@ -9,7 +9,7 @@ export default function Navbar() {
       <div className="navbar">
          <div className="navbar--leftSide">
             <NavLink className="navbar--imageLink" to="/">
-               <img className="navbar--image" src={placeholder} />
+               <img className="navbar--image" src={logo} />
             </NavLink>
             <h2 className="navbar--mainText">생명샘 장로교회</h2>
          </div>

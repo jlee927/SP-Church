@@ -1,4 +1,7 @@
 import "../assets/styles/news-full-post.css";
+import Comments from "./Comments";
+import CommentsForm from "./CommentsForm";
+import parseDate from "../../parseDate";
 import { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 
@@ -7,7 +10,7 @@ export default function NewsEntryFullPost() {
    const location = useLocation();
    const dateCreated = location.state || {};
 
-   console.log(location);
+   // console.log(location);
 
    const [dataAPI, setDataAPI] = useState([]);
 
@@ -30,43 +33,45 @@ export default function NewsEntryFullPost() {
       fetchData();
    }, []);
 
-   function parseDate(dateString) {
-      const date = new Date(dateString);
 
-      // Extract year, month, and day
-      const year = date.getFullYear();
-      const month = String(date.getMonth() + 1).padStart(2, "0"); // Months are zero-based, so add 1
-      const day = String(date.getDate()).padStart(2, "0");
-
-      return { year, month, day };
-   }
-
-   const isNumberedList = /^\d+\.\s+/;
+   const isNumberedList = dataAPI.body && /^\d+\.\s+/.test(dataAPI.body);
    let renderedContent;
-   let isBulletPoint = isNumberedList.test(dataAPI.body);
-   // Check if the text contains bullet points or numbered lists
-   if (isBulletPoint) {
-      // Split the text into an array of list items
-      const items = dataAPI.body.split(/\d+\.\s+/).filter(Boolean);
 
-      // Store the list in the variable
-      renderedContent = (
-         <div className="entry--full--body">
-            <ol >
-               {items.map((item, index) => (
-                  <li  key={index}>
-                     {item.trim()}
-                  </li>
+   // Check if dataAPI.body exists and is not undefined
+   if (dataAPI.body) {
+      if (isNumberedList) {
+         // Split the text into an array of list items
+         const items = dataAPI.body.split(/\d+\.\s+/).filter(Boolean);
+
+         // Store the list in the variable
+         renderedContent = (
+            <div className="entry--full--body">
+               <ol>
+                  {items.map((item, index) => (
+                     <li key={index}>{item.trim()}</li>
+                  ))}
+               </ol>
+            </div>
+         );
+      } else {
+         // Handle the \n\n line breaks
+         const paragraphs = dataAPI.body.split("\n\n");
+
+         // Store the paragraphs in the variable
+         renderedContent = (
+            <div className="entry--full--body">
+               {paragraphs.map((paragraph, index) => (
+                  <p key={index}>{paragraph.trim()}</p>
                ))}
-            </ol>
-         </div>
-      );
+            </div>
+         );
+      }
    } else {
-      // Store the plain text in the variable
-      renderedContent = <p className="entry--full--body">{dataAPI.body}</p>;
+      // If dataAPI.body is undefined, render a placeholder or message
+      renderedContent = <p>Loading content...</p>;
    }
 
-   console.log(dataAPI);
+   // console.log(dataAPI);
    const announcementDate = parseDate(dataAPI.announcementDate);
    return (
       <div className="news--full--container">
@@ -89,6 +94,8 @@ export default function NewsEntryFullPost() {
 
             {renderedContent}
          </div>
+         <Comments postID={id} />
+         <CommentsForm postID={id} />
       </div>
    );
 }

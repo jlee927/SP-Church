@@ -1,5 +1,4 @@
-import "../assets/styles/news.css";
-import NewsEntry from "../components/NewsEntry";
+import "../assets/styles/news.css";import NewsEntry from "../components/NewsEntry";
 import { useEffect, useState } from "react";
 
 export default function News() {

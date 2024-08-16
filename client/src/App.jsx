@@ -17,7 +17,7 @@ function App() {
             <Route path="/news" element={<News />} />
             <Route path="/news/:id" element={<NewsEntryFullPost />} />
          </Routes>
-         {/* <Footer/>  */}
+         <Footer/> 
       </Router>
    );
 }

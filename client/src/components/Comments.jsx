@@ -1,26 +1,72 @@
-export default function Comments() {
+import "../assets/styles/comments.css";
+import commentProfile from "../images/comment-profile.png";
+import parseDate from "../../parseDate";
+import { useEffect, useState } from "react";
 
-    function post(formData) {
-        const query = formData.get("query");
-        alert(`You searched for '${query}'`)
-    }
+export default function Comments(props) {
+   const [commentsData, setCommentsData] = useState([]);
+   //    const { postID } = useParams();
+   useEffect(() => {
+      const fetchData = async () => {
+         try {
+            const res = await fetch(
+               `http://localhost:3000/data/get-comments/${props.postID}`
+            );
+            if (!res.ok) {
+               throw new Error("Network response was not okay");
+            }
+            const result = await res.json();
+            setCommentsData(result);
+            // console.log("Fetched!")
+         } catch (error) {
+            console.log(error);
+         }
+      };
+      fetchData();
+   }, []);
 
+   console.log(commentsData);
 
-    return (
-        <div className="comment--container">
-            <h1>TEST</h1>
-            {/* <h1 className="comment--title">답글 남기기</h1>
-            <h2 className="comment-info">이메일 주소는 공개되지 않습니다. 필수 필드는 *로 표시됩니다</h2>
-            <h2 className="comment-info">댓글 *</h2> */}
+   const newData = commentsData.map((comment, key) => {
+      const dateObject = parseDate(comment.createdAt);
+      return (
+         <div className="comment--user--container" key={key}>
+            <div className="user">
+               <div className="user--container">
+                  <img className="user--image" src={commentProfile} />
+                  <div className="user--name">
+                     <strong>{comment.name}</strong> 댓글:
+                  </div>
+               </div>
 
+               <div className="user--metadata">
+                  <div className="user--time">
+                     {dateObject.isMorning === true ? (
+                        <div>
+                           {dateObject.month}월 {dateObject.day},{" "}
+                           {dateObject.year}, {dateObject.hours}:
+                           {dateObject.minutes}오전
+                        </div>
+                     ) : (
+                        <div>
+                           {dateObject.month}월 {dateObject.day},{" "}
+                           {dateObject.year}, {dateObject.hours}:
+                           {dateObject.minutes}오후
+                        </div>
+                     )}
+                  </div>
+                  <button>응답</button>
+               </div>
+            </div>
 
-            <form className="comment-form"  action={post}>
-            <input 
-                name="query"
-                type="text"
-            />
-            <button type="submit">Submit</button>
-            </form>
-        </div>
-    )
+            <p className="user--body">{comment.comment}</p>
+         </div>
+      );
+   });
+   return (
+      <div className="comment--section--container">
+         <h1 className="comment--section--head">에 대한 {commentsData.length}개의 생각</h1>
+         {newData}
+      </div>
+   );
 }

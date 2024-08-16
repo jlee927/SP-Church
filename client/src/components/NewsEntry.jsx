@@ -1,4 +1,5 @@
 import "../assets/styles/news.css";
+import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 
 export default function NewsEntry(props) {

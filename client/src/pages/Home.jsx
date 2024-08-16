@@ -8,7 +8,7 @@ export default function Home() {
             <Slideshow />
          </main>
 
-         <Footer />
+         {/* <Footer /> */}
       </div>
    );
 }
