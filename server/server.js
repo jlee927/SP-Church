@@ -28,3 +28,7 @@ mongoose.connect(dbURI).then((result) => {
       else console.log("Error occurred, server can't start", error);
    });
 });
+
+app.get("/", (req, res) => {
+   res.send("Test for vercel");
+})
