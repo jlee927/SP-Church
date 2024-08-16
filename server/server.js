@@ -4,30 +4,27 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT;
 const cors = require("cors");
-const contentful = require("./routes/contentful")
+const contentful = require("./routes/contentful");
+const database = require("./routes/database");
+
+const mongoose = require("mongoose");
+const dbURI =
+   "mongodb+srv://jin:ji9gvys4@cluster0.gimvn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use("/contentful", contentful);
-app.use(express.json())
+app.use("/data", database);
+// app.use("/data", )
 
-// app.get("/data/test", (req, res) => {
-//    res.send("My data test");
-// })
-
-app.post("/data/test", (req, res) => {
-   const { name, email } = req.body;
-
-   console.log(`Name: ${name} Email: ${email}`)
-
-   res.send();
-}) 
-
-
-
-app.listen(PORT, (error) => {
-   if (!error)
-      console.log(
-         "Server is Successfully Running, and App is listening on port " + PORT
-      );
-   else console.log("Error occurred, server can't start", error);
+mongoose.connect(dbURI).then((result) => {
+   app.listen(PORT, (error) => {
+      if (!error)
+         console.log(
+            "Server is Successfully Running, and App is listening on port " +
+               PORT
+         );
+      else console.log("Error occurred, server can't start", error);
+   });
 });
